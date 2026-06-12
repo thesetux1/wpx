@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -803,42 +802,15 @@ function showClaimBanner(seg){
 let claimInited=false;
 function initClaim(){
   if(claimInited)return;claimInited=true;
-  
-  // Full WhatsApp sharing message (with line breaks preserved)
-  const whatsappMessage = `🏆 WORLD CUP 2026 – SPIN & WIN 🎡
-
-💰 I just WON BIG in the FIFA World Cup 2026 Official Giveaway!
-
-🎯 Spin 3 times & win up to ₦500,000 CASH, iPhone 17 Pro Max, & more!
-
-✅ 100% FREE
-✅ NO PURCHASE NEEDED  
-✅ LIMITED TIME OFFER
-
-🔗 JOIN THE CHAMPIONSHIP:
-https://wc2026spin.online/claim
-
-Hurry up! 🏃‍♂️⚽`;
-
+  const text1='🏆%20WORLD%20CUP%202026%20%E2%80%93%20SPIN%20%26%20WIN%20%F0%9F%8E%A1%0A%0A%F0%9F%92%B0%20I%20just%20WON%20BIG%20in%20the%20FIFA%20World%20Cup%202026%20Official%20Giveaway!%0A%0A%F0%9F%8E%AF%20Spin%203%20times%20%26%20win%20up%20to%20%E2%82%A6500%2C000%20CASH%2C%20iPhone%2017%20Pro%20Max%2C%20%26%20more!%0A%0A%E2%9C%85%20100%25%20FREE%0A%E2%9C%85%20NO%20PURCHASE%20NEEDED%0A%E2%9C%85%20LIMITED%20TIME%20OFFER%0A%0A%F0%9F%94%97%20JOIN%20THE%20CHAMPIONSHIP%3A%0Ahttps%3A%2F%2Fwc2026spin.online%2Fclaim%0A%0AHurry%20up%21%20%F0%9F%8F%83%E2%80%8D%E2%99%82%EF%B8%8F%E2%9A%BD';
   const abcde='https://ptakeemsaifegro.net/4/9075330';
-  
-  // URL encode the message for WhatsApp
-  const encodedMessage = encodeURIComponent(whatsappMessage);
-  const shareUrl='whatsapp://send?text='+encodedMessage;
-  const webShareUrl='https://wa.me/?text='+encodedMessage;
+  const shareUrl='whatsapp://send?text='+text1;
   const err='Something is wrong!\nPosts not calculated. You may have shared with the same person more than once.';
   let w=parseInt(load(KEYS.claim)||'0');
   document.getElementById('tfFill').style.width=w+'%';document.getElementById('tfPct').textContent=w+'%';
   if(w>=98){document.getElementById('tfShare').style.display='none';document.getElementById('tfClaim').style.display='block';return}
-  
   document.getElementById('tfWhatsapp').addEventListener('click',function(){
-    // Try native WhatsApp first, fallback to web
-    if(navigator.userAgent.toLowerCase().includes('android')||navigator.userAgent.toLowerCase().includes('iphone')){
-      window.location.href=shareUrl;
-    } else {
-      window.open(webShareUrl,'_blank');
-    }
-    
+    window.location.href=shareUrl;
     if(w===0)w+=50;else if(w===50){alert(err);w+=15}else if(w===65)w+=5;else if(w===70){alert(err);w+=10}
     else if(w===80){alert(err);w+=5}else if(w===85)w+=2;else if(w===87)w+=1;else if(w===88)w+=2;
     else if(w===90)w+=1;else if(w===91)w+=1;else if(w===92)w+=1;else if(w===93)w+=1;
